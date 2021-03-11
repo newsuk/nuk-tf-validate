@@ -1,0 +1,10 @@
+name: terraform-validate
+description: Validate a terraform configuration directory.
+
+#triggers event on push to main (or set to trigger on pull request and you can define which branch).
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: /scripts/validate.sh
