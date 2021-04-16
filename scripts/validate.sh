@@ -38,7 +38,7 @@ then
             echo "validating directory .. ${dirContainingTf}"
             cd ${dirContainingTf}
             terraform validate
-            cd {home}
+            cd ${home}
         done
     fi
 else
