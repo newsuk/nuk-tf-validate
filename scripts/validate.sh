@@ -37,6 +37,7 @@ then
         do
             echo "validating directory .. ${dirContainingTf}"
             cd ${dirContainingTf}
+            terraform init -backend=false
             terraform validate
             cd ${home}
         done
