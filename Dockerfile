@@ -19,7 +19,7 @@ mv terraform /usr/local/bin/ && \
 # Install TF Switch
 curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash && \
 # Check to see if Terraform is installed
-terraform --version ; echo "" && \
+terraform --version ; echo ""
 
 
 COPY scripts/ /scripts/
