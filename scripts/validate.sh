@@ -33,7 +33,7 @@ then
         echo "the following directories containing terraform will be validated .."
         cat ${tfDirListtmp} | sort | uniq >> ${tfDirList}
         cat ${tfDirList} ; echo ""
-        cat ${tfDirList} ; while read dirContainingTf
+        cat ${tfDirList} | while read dirContainingTf
         do
             echo "validating directory .. ${dirContainingTf}"
             cd ${dirContainingTf}
