@@ -7,17 +7,16 @@ echo "list of provider.tf files"
 cat ${listOfProviderFiles}
 home=$(pwd)
 numberOfProviderFiles=$(cat ${listOfProviderFiles} | wc -l)
+echo "${numberOfProviderFiles} provider files found"
 if [[ ${numberOfProviderFiles} -ne 0 ]]
 then
-  cat ${listOfProviderFiles} | while read providerFile
-  do
+  providerFile=$(cat ${listOfProviderFiles} | head -1)
   providerDir=${providerFile%/provider.tf}
   cd ${providerDir}
   pwd
   terraform init -backend=false && \
+  cd ${home} && \
   terraform validate
-  cd ${home}
- done
 else
   echo "no provider.tf files found"
 fi
