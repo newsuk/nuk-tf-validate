@@ -18,6 +18,7 @@ then
     cd ${providerDir}
     pwd
     terraform init -backend=false
+    tfswitch $(cat backend.tf | grep -A 2 terraform | grep required_version | awk '{print $4}' | tr -d \")
     if [[ $? -ne 0 ]]
     then
         echo "error: could not initialise repo .. exiting" && exit 255
@@ -37,7 +38,7 @@ then
         do
             echo "validating directory .. ${dirContainingTf}"
             cd ${dirContainingTf}
-            tfswitch $(cat backend.tf | grep -A 2 terraform | grep required_version | awk '{print $4}' | tr -d \")
+            # tfswitch $(cat backend.tf | grep -A 2 terraform | grep required_version | awk '{print $4}' | tr -d \")
             terraform init -backend=false
             terraform validate
             cd ${home}
